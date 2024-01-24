@@ -1,33 +1,41 @@
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
 int main()
 {
-srand(static_cast<unsigned int>(time(0)));
+	//initialize the secret number and guess. The secret number will be some random number thats between 1 and 100. The user will guess what the number is.
 
-int secretNumber = rand() % 100 + 1;
-int guess = 0;
+	int secretNumber;
+	int guess = 0;
 
-cout << "Guess a number between 1 to 100. " << endl;
+	srand(time(0));
+	secretNumber = (rand() % 100) + 1;
 
-while (guess != secretNumber)
-{
-cout << "Enter your guess: ";
-cin >> guess;
+	//using a while loop, the program will tell the user whether or not they are too high or too low until they guess the correct number
+	cout << "Guess a number between 1 to 100. " << endl;
 
-if (guess > secretNumber)
-{
-cout << "Too high! Try again: " << endl;
-}
-else if (guess < secretNumber)
-{
-cout << "Too low! Try again: " << endl;
-}
-else
-{
-cout << "Correct! You WIN!" << endl;
-}
-return 0;
+	while (guess != secretNumber)
+	{
+		cout << "Enter your guess: ";
+		cin >> guess;
 
+		if (guess > secretNumber)
+		{
+			cout << "Too high! Try again: " << endl;
+		}
+		else if (guess < secretNumber)
+		{
+			cout << "Too low! Try again: " << endl;
+		}
+		else
+		{
+			cout << "Correct! You WIN!" << endl;
+		}
+		
+
+	}
+	return 0;
 }
